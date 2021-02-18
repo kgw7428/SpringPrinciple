@@ -2,7 +2,12 @@ package hello.core.member;
 
 public class MemberServiceImpl implements MemberService{
 
-    private final MemberRepository memberRepository = new MemoryMemberRepository(); // 구현 객체가 없으면, NullPointException이 발생
+    private final MemberRepository memberRepository; // <- 생성자 주입 변경 : private final MemberRepository memberRepository = new MemoryMemberRepository(); // 구현 객체가 없으면, NullPointException이 발생
+
+    // 생성자 주입 추가 부분
+    public MemberServiceImpl(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
+    }
 
     @Override
     public void join(Member member) {
