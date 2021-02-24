@@ -17,7 +17,7 @@ public class AppConfig {
 
     @Bean
     public MemberService memberService(){
-        return new MemberServiceImpl(memberRepository()); // 생성자 주입, MemoryMemberRepository의 참조값을 매개변수로 넣어줌
+        return new MemberServiceImpl(memberRepository());
     }
 
     @Bean
@@ -32,6 +32,6 @@ public class AppConfig {
 
     @Bean
     public DiscountPolicy discountPolicy(){
-        return new RateDiscountPolicy(); // <- 할인정책 변경 : return new FixDiscountPolicy();
+        return new RateDiscountPolicy();
     }
 }

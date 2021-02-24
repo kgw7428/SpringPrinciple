@@ -11,10 +11,9 @@ import org.junit.jupiter.api.Test;
 
 public class OrderServiceTest {
 
-    MemberService memberService; // <- 생성자 주입 변경 : MemberService memberService = new MemberServiceImpl(memberRepository);
-    OrderService orderService; // <- 생성자 주입 변경 : OrderService orderService = new OrderServiceImpl();
+    MemberService memberService;
+    OrderService orderService;
 
-    // 생성자 주입 추가 부분
     @BeforeEach
     public void beforeEach(){
         AppConfig appConfig = new AppConfig();
@@ -24,7 +23,7 @@ public class OrderServiceTest {
 
     @Test
     void createOrder(){
-        Long memberId = 1L; // long은 null이 안됨
+        Long memberId = 1L;
         Member member = new Member(memberId, "memberA", Grade.VIP);
         memberService.join(member);
 
