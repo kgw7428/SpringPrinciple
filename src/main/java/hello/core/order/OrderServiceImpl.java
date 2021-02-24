@@ -20,9 +20,13 @@ public class OrderServiceImpl implements OrderService{
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {
         Member member = memberRepository.findById(memberId);
-        int discountPrice = discountPolicy.discount(member, itemPrice); // DiscountPolicy에 정보를 넘김
-                                                                         // 단일 체계의 원칙을 준수하게 설계, member와 itemPrice를 매개변수로 discountPrice 값을 얻을 수 있음
+        int discountPrice = discountPolicy.discount(member, itemPrice);
 
-        return new Order(memberId, itemName, itemPrice, discountPrice); // 주문서 작성 및 반환
+        return new Order(memberId, itemName, itemPrice, discountPrice);
+    }
+
+    // 테스트 용도 - configuration과 싱글톤을 확인하기 위한 소스 코드
+    public MemberRepository getMemberRepository(){
+        return memberRepository;
     }
 }
