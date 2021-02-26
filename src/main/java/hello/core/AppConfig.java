@@ -17,19 +17,19 @@ public class AppConfig {
 
     @Bean
     public MemberService memberService(){
-        System.out.println("call AppConfig.memberService"); // configuration & 싱글톤 확인을 위한 log용 소스코드
+        System.out.println("call AppConfig.memberService");
         return new MemberServiceImpl(memberRepository());
     }
 
     @Bean
     public OrderService orderService(){
-        System.out.println("AppConfig.orderService"); // configuration & 싱글톤 확인을 위한 log용 소스코드
+        System.out.println("AppConfig.orderService");
         return new OrderServiceImpl(memberRepository(), discountPolicy());
     }
 
     @Bean
     public MemberRepository memberRepository() {
-        System.out.println("AppConfig.memberRepository"); // configuration & 싱글톤 확인을 위한 log용 소스코드
+        System.out.println("AppConfig.memberRepository");
         return new MemoryMemberRepository();
     }
 
