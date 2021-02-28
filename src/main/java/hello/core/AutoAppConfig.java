@@ -10,8 +10,11 @@ import org.springframework.context.annotation.FilterType;
 @Configuration // 설정 정보 선언
 @ComponentScan(excludeFilters = @ComponentScan.Filter(type = FilterType.ANNOTATION, classes = Configuration.class))
 public class AutoAppConfig {
-    @Bean(name = "memoryMemberRepository")
+
+    // 충돌 실험험
+
+   /* @Bean(name = "memoryMemberRepository")
     MemberRepository memberRepository(){
         return new MemoryMemberRepository();
-    }
+    }*/
 }
